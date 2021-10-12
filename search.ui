@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>search</class>
+ <widget class="QMainWindow" name="search">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>998</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>998</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>998</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>composer</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="assets/resources.qrc">
+    <normaloff>:/images/images/packagist.png</normaloff>:/images/images/packagist.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#search{
+	background-color:#FAFAFA;
+}
+#Intro {
+	background-color:rgba(255, 255, 255, 0)
+}
+#frame{
+	background-color:#f28d1a;
+}
+#SearchQuery {
+	color:#212121;
+	padding-left:4px;
+	padding-right:4px;
+	background:#fff;
+	border-radius:4px;
+}
+.blank {
+	background-color: rgba(255, 255, 255, 0);
+}
+.resp-box &gt; * {
+	color:#212121;
+}
+.resp-box {
+	background-color:rgba(255, 255, 255, 0);
+	padding-top:27px;
+	border:none;
+	border-bottom:1px solid #f28d1a;
+}
+.resp-box:title{
+	color:#212121;
+	border-bottom:1px solid #f28d1a;
+	subcontrol-origin: margin;
+	margin-left:12px;
+	subcontrol-position: top left;
+	padding-top:4px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-bottom:4px;
+}
+.resp-btn {
+	color:#FFFFFF;
+	background-color:rgba(193, 110, 20, 194);
+	border:1px solid #212121;
+}
+.resp-btn:hover {
+	background-color:rgb(242, 141, 26);
+}
+.resp-btn:pressed {
+	background-color:rgb(190, 108, 20);
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>-10</y>
+      <width>1020</width>
+      <height>140</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QGraphicsView" name="LogoImage">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>20</y>
+       <width>100</width>
+       <height>100</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/images/images/packagist.png);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="interactive">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="SearchQuery">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>20</y>
+       <width>620</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="frame">
+      <bool>false</bool>
+     </property>
+     <property name="placeholderText">
+      <string>Sreach Packages ...</string>
+     </property>
+    </widget>
+    <widget class="KBusyIndicatorWidget" name="busyGif">
+     <property name="geometry">
+      <rect>
+       <x>820</x>
+       <y>20</y>
+       <width>41</width>
+       <height>40</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="aboutPackagist">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>70</y>
+       <width>620</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Packagist is the main &lt;a href=&quot;https://getcomposer.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#ffffff;&quot;&gt;Composer&lt;/span&gt;&lt;/a&gt; repository. It aggregates public PHP packages installable with Composer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="openExternalLinks">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QTextBrowser" name="Intro">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>130</y>
+      <width>900</width>
+      <height>440</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Noto Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;h2 style=&quot; margin-top:0px; margin-bottom:15px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:44px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:x-large; font-weight:304; color:#2d2d32;&quot;&gt;Getting Started&lt;/span&gt;&lt;/h2&gt;
+&lt;h3 style=&quot; margin-top:20px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:110%;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:large; font-weight:600; color:#000000;&quot;&gt;Define Your Dependencies&lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:21px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt;Put a file named &lt;/span&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; font-weight:304; font-style:italic; color:#2d2d32;&quot;&gt;composer.json&lt;/span&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt; at the root of your project, containing your project dependencies:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;{&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;    &amp;quot;require&amp;quot;: {&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;        &amp;quot;vendor/package&amp;quot;: &amp;quot;1.3.2&amp;quot;,&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;        &amp;quot;vendor/package2&amp;quot;: &amp;quot;1.*&amp;quot;,&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;        &amp;quot;vendor/package3&amp;quot;: &amp;quot;^2.0.3&amp;quot;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;    }&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:21px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt;For more information about packages versions usage, see the &lt;/span&gt;&lt;a href=&quot;https://getcomposer.org/doc/01-basic-usage.md#package-versions&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; text-decoration: underline; color:#b34e22; background-color:transparent;&quot;&gt;composer documentation&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:20px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:110%;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:large; font-weight:600; color:#000000;&quot;&gt;Install Composer In Your Project&lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:21px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt;Run this in your command line:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;curl -sS https://getcomposer.org/installer | php&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:21px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt;Or &lt;/span&gt;&lt;a href=&quot;https://getcomposer.org/composer.phar&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; text-decoration: underline; color:#b34e22; background-color:transparent;&quot;&gt;download composer.phar&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt; into your project root.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:21px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt;See the Composer documentation for complete &lt;/span&gt;&lt;a href=&quot;https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; text-decoration: underline; color:#b34e22; background-color:transparent;&quot;&gt;installation instructions&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt; on various platforms.&lt;/span&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:20px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:110%;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:large; font-weight:600; color:#000000;&quot;&gt;Install Dependencies&lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:21px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt;Execute this in your project root.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;php composer.phar install&lt;/span&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:20px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:110%;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:large; font-weight:600; color:#000000;&quot;&gt;Autoload Dependencies&lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:21px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt;If your packages specify &lt;/span&gt;&lt;a href=&quot;https://getcomposer.org/doc/01-basic-usage.md#autoloading&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; text-decoration: underline; color:#b34e22; background-color:transparent;&quot;&gt;autoloading information&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt;, you can autoload all the dependencies by adding this to your code:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;require 'vendor/autoload.php';&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:21px;&quot;&gt;&lt;a href=&quot;https://packagist.org/explore/&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; text-decoration: underline; color:#b34e22; background-color:transparent;&quot;&gt;Browse&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt; the packages we have to find more great libraries you can use in your project.&lt;/span&gt;&lt;/p&gt;
+&lt;h2 style=&quot; margin-top:0px; margin-bottom:15px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:44px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:x-large; font-weight:304; color:#2d2d32;&quot;&gt;Publishing Packages&lt;/span&gt;&lt;/h2&gt;
+&lt;h3 style=&quot; margin-top:20px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:110%;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:large; font-weight:600; color:#000000;&quot;&gt;Define Your Package&lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:21px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt;Put a file named &lt;/span&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; font-weight:304; font-style:italic; color:#2d2d32;&quot;&gt;composer.json&lt;/span&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt; at the root of your package's repository, containing this information:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;{&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;    &amp;quot;name&amp;quot;: &amp;quot;your-vendor-name/package-name&amp;quot;,&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;    &amp;quot;description&amp;quot;: &amp;quot;A short description of what your package does&amp;quot;,&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;    &amp;quot;require&amp;quot;: {&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;        &amp;quot;php&amp;quot;: &amp;quot;&amp;gt;=7.4&amp;quot;,&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;        &amp;quot;another-vendor/package&amp;quot;: &amp;quot;1.*&amp;quot;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;    }&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:12px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#000000; background-color:transparent;&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:21px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt;This is the strictly minimal information you have to give.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:21px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt;For more details about package naming and the fields you can use to document your package better, see the &lt;/span&gt;&lt;a href=&quot;https://packagist.org/about&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; text-decoration: underline; color:#b34e22; background-color:transparent;&quot;&gt;about&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt; page.&lt;/span&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:20px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:110%;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:large; font-weight:600; color:#000000;&quot;&gt;Commit The File&lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:21px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt;Add the &lt;/span&gt;&lt;span style=&quot; font-family:'Source Code Pro','Menlo','Consolas','Courier New','Courier','monospace'; font-size:12px; color:#2d2d32; background-color:#ffffff;&quot;&gt;composer.json&lt;/span&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt; to your git or other VCS repository and commit it.&lt;/span&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:20px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:110%;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:large; font-weight:600; color:#000000;&quot;&gt;Publish It&lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:21px;&quot;&gt;&lt;a href=&quot;https://packagist.org/login/&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; text-decoration: underline; color:#b34e22; background-color:transparent;&quot;&gt;Log in&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt; or &lt;/span&gt;&lt;a href=&quot;https://packagist.org/register/&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; text-decoration: underline; color:#b34e22; background-color:transparent;&quot;&gt;register&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt; on this site, then hit the &lt;/span&gt;&lt;a href=&quot;https://packagist.org/packages/submit&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; text-decoration: underline; color:#b34e22; background-color:transparent;&quot;&gt;submit&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt; button in the menu.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:21px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt;Once you entered your public repository URL in there, your package will be automatically crawled periodically. You just have to make sure you keep the composer.json file up to date.&lt;/span&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:20px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:110%;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:large; font-weight:600; color:#000000;&quot;&gt;Sharing Private Code&lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:10px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:21px;&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt;Use &lt;/span&gt;&lt;a href=&quot;https://packagist.com/&quot;&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; text-decoration: underline; color:#b34e22; background-color:transparent;&quot;&gt;Private Packagist&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans','sans-serif'; font-size:14px; color:#2d2d32;&quot;&gt; if you want to share private code as a Composer package with colleagues or customers without publishing it for everyone on Packagist.org. Private Packagist allows you to manage your own private Composer repository with per-user authentication, team management and integration in version control systems.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="openExternalLinks">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QScrollArea" name="resultsBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>140</y>
+      <width>960</width>
+      <height>434</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>960</width>
+       <height>434</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout"/>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="sizeGripEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KBusyIndicatorWidget</class>
+   <extends>QWidget</extends>
+   <header>kbusyindicatorwidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="assets/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
